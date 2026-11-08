@@ -1,0 +1,20 @@
+name = "microbit_v2_demo"
+description = "LED-matris, knappar och BLE-beacon för BBC micro:bit v2 (nRF52833)"
+version = "0.1.0-dev"
+
+authors = ["Your Name"]
+maintainers = ["Your Name <example@example.com>"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = ""
+tags = []
+
+executables = ["microbit_v2_demo"]
+
+[[depends-on]]
+light_tasking_nrf52833 = "^16.0.0"
+
+[configuration.values]
+# micro:bit v2: RC-oscillatorn fungerar alltid som LF-klocka.
+light_tasking_nrf52833.LFCLK_Src = "RC"
+# SWO skulle ta P1.00, som är kantkontakt P20 (extern I2C SDA) på v2.
+light_tasking_nrf52833.Use_SWO_Trace = false
